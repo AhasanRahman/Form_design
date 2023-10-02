@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Josefin+Sans&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="container">
+        
+        <form name="registration" class="registration-form" >
+          <table>
+            <tr>
+                <td>
+                    <label for="img">Select image:</label>
+                 
+                </td>
+                <td> <input type="file" id="image_input" name="img" accept="image/jpg">  </td>
+            </tr>
+            <tr>
+              <td><label for="name">Name:</label></td>
+              <td><input type="text" name="name" id="name" placeholder=""></td>
+            </tr>
+            <tr>
+              <td><label for="email">Email:</label></td>
+              <td><input type="text" name="email" id="email" placeholder=""></td>
+            </tr>
+            <tr>
+              <td><label for="password">Password:</label></td>
+              <td><input type="password" name="password" id="password"></td>
+            </tr>
+            <tr>
+              <td><label for="phoneNumber">Phone Number:</label></td>
+              <td><input type="number" name="phoneNumber" id="phoneNumber"></td>
+            </tr>
+            <tr>
+              <td><label for="gender">Gender:</label></td>
+              <td>Male: <input type="radio" name="gender" value="male">
+                Female: <input type="radio" name="gender" value="female">
+                Other: <input type="radio" name="gender" value="other"></td>
+            </tr>
+            <tr>
+              <td><label for="language">Language</label></td>
+              <td>
+                <select name="language" id="language">
+                  <option value="">Select language</option>
+                  <option value="English">English</option>
+                  <option value="Spanish">Bangla</option>
+                  <option value="Hindi">Hindi</option>
+                  <option value="Arabic">Arabic</option>
+                  <option value="Russian">Russian</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="Department">Department:</label></td>
+              <td>
+                <select>
+                    <option value=""> Select Program</option>
+                    <option value="bsc">BSC</option>
+                    <option value="bbs">BBA</option>
+                    <option value="vw">MBA</option>
+                     <option value="law">LAW</option>
+                     <option value="english">ENGLISH</option>
+                  </select> </td>
+            </tr>
+            <tr>
+                <td><label for="date">Date of Birth</label></td>
+                <td><input type="date" class="" ></td>
+            </tr>
+            <!-- <tr>
+              <td><label for="about">About:</label></td>
+              <td><textarea name="about" id="about" placeholder="Write about yourself..."></textarea></td>
+            </tr> -->
+            <tr>
+              <td colspan=""><input type="submit" class="submit" value="Register"></td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    
+</body>
+</html>
