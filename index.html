@@ -13,54 +13,58 @@
     
     <div class="container">
         
-        <form name="registration" class="registration-form" >
+        <form name="registration" class="registration-form" onsubmit="handleSubmit(event)" >
           <table>
             <tr>
                 <td>
                     <label for="img">Select image:</label>
+                    
                  
                 </td>
-                <td> <input type="file" id="image_input" name="img" accept="image/jpg">  </td>
+                <td> <input type="file" id="image_input" accept="image/jpg, image/png"> 
+                  <img id="img" src="">
+                 </td>
             </tr>
             <tr>
               <td><label for="name">Name:</label></td>
-              <td><input type="text" name="name" id="name" placeholder=""></td>
+              <td><input type="text" name="name" id="name"  >
+                <p id="nfield"></p>
+              </td>
+             
             </tr>
             <tr>
-              <td><label for="email">Email:</label></td>
-              <td><input type="text" name="email" id="email" placeholder=""></td>
-            </tr>
-            <tr>
-              <td><label for="password">Password:</label></td>
-              <td><input type="password" name="password" id="password"></td>
+              <td><label for="age">Age:</label></td>
+              <td><input type="text" name="age" id="age">
+                <p id="agefield"></p>
+              </td>
+             
             </tr>
             <tr>
               <td><label for="phoneNumber">Phone Number:</label></td>
-              <td><input type="number" name="phoneNumber" id="phoneNumber"></td>
+              <td><input type="text" name="phoneNumber" id="phone">
+                <p id="phonefield"></p> </td>
             </tr>
             <tr>
+            
+                <td><label for="email">Email:</label></td>
+                <td><input type="text" name="email" id="email" placeholder="">
+                  <p id="mailfield"></p>
+                </td>
+             
+            </tr>
+            <tr id="radioall">
               <td><label for="gender">Gender:</label></td>
-              <td>Male: <input type="radio" name="gender" value="male">
-                Female: <input type="radio" name="gender" value="female">
-                Other: <input type="radio" name="gender" value="other"></td>
-            </tr>
-            <tr>
-              <td><label for="language">Language</label></td>
-              <td>
-                <select name="language" id="language">
-                  <option value="">Select language</option>
-                  <option value="English">English</option>
-                  <option value="Spanish">Bangla</option>
-                  <option value="Hindi">Hindi</option>
-                  <option value="Arabic">Arabic</option>
-                  <option value="Russian">Russian</option>
-                </select>
+              <td>Male: <input class="radio" type="radio" name="gender" id="radioall1" value="male">
+                Female: <input class="radio" type="radio" name="gender" id="radioall2" value="female">
+                Other: <input class="radio" type="radio" name="gender" id="radioall3" value="other">
+                <p id="ptag"></p>
               </td>
             </tr>
             <tr>
+
               <td><label for="Department">Department:</label></td>
               <td>
-                <select>
+                <select id="select" required="required" >
                     <option value=""> Select Program</option>
                     <option value="bsc">BSC</option>
                     <option value="bbs">BBA</option>
@@ -70,6 +74,48 @@
                   </select> </td>
             </tr>
             <tr>
+              <td><label for="language">Language</label></td>
+              <td>
+                <input type="checkbox" name="" value="bangla">
+                <label for=""> Bangla</label>
+                <input type="checkbox" name="" value="english">
+                <label for=""> English</label>
+                <input type="checkbox" name="" value="">
+                <label for=""> Spanish</label><br>
+                <input type="checkbox" name="" value="china">
+                <label for=""> China</label>
+                <input type="checkbox" name="" value="arabic">
+                <label for=""> Arabic</label>
+              </td>
+
+              <!-- <td>
+                <select name="language" id="language">
+                  <option value="">Select language</option>
+                  <option value="English">English</option>
+                  <option value="Spanish">Bangla</option>
+                  <option value="Hindi">Hindi</option>
+                  <option value="Arabic">Arabic</option>
+                  <option value="Russian">Russian</option>
+                </select>
+              </td> -->
+              
+            </tr>
+            <tr>
+              <tr>
+                <td>
+                  <label for="">Hobbies</label>
+                </td>
+                <td>
+                  <input type="checkbox" name="" value="Travel">
+                  <label for="vehicle1"> Travel</label>
+                  <input type="checkbox" name="" value="Bike">
+                  <label for="vehicle1"> Bike Riding</label><br>
+                  <input type="checkbox" name="" value="movie">
+                  <label for=" "> Movies</label>
+                  <input type="checkbox" name="" value="Travel">
+                  <label for="vehicle1"> Travel</label>
+                </td>
+              </tr>
                 <td><label for="date">Date of Birth</label></td>
                 <td><input type="date" class="" ></td>
             </tr>
@@ -81,8 +127,13 @@
               <td colspan=""><input type="submit" class="submit" value="Register"></td>
             </tr>
           </table>
+          
         </form>
+        
+         
+        
       </div>
-    
+
+    <script src="script.js"></script>
 </body>
 </html>
