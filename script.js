@@ -1,17 +1,39 @@
 const img = document.getElementById("img");
 const image_input = document.querySelector("#image_input");
-const radio = document.getElementsByClassName("radio");
-const ptag = document.getElementById("ptag");
+
 
 image_input.addEventListener("change", () => {
-    img.src = URL.createObjectURL(image_input.files[0]);
-    console.log(img.src)
+    const storImg = imgValidation(image_input.files[0]);
+    if (storImg) {
+        img.src = URL.createObjectURL(storImg);
+    }
 });
 
-// name
-let aname =document.getElementById("name");
+const pic=  document.getElementById("pic")
 
-const handleSubmit = (e) =>{
+const imgValidation = (img) => {
+    if (img.size < 102400 ) {
+       pic.innerText = "";
+        if (img.type === 'image/jpg'||img.type === 'image/png') {
+            pic.innerText = "";
+            return img;
+        } else {
+            // console.log('type not metch');
+            pic.innerText = "file type not match ";
+        }
+    } else {
+        // console.log('big size');
+        pic.innerText = "file size over  ";
+    }
+
+    return false;
+}
+
+
+// name
+let aname = document.getElementById("name");
+
+const handleSubmit = (e) => {
 
     e.preventDefault();
 
@@ -19,26 +41,27 @@ const handleSubmit = (e) =>{
     const ageReturn = handleage();
     const emailReturn = handleemail();
     const contactReturn = handlecontact();
-    const genderReturn = radioValidation(radio,ptag);
+    const genderReturn = radioValidation(radio, ptag);
+    const languageReturn = checkboxValidation(checkbox, pcheck);
+    const hobbyReturn = hobbyValidation(check,phobby);
+    const dateReturn = dateValidation(date,datefield);
     // const departmentReturn = handledepartment();
-
-    // if(nameReturn){
-    //     alert("Form Submit")
-    // }
+ 
 }
 const namefunction = () => {
-    if (aname.value){
-        if(aname.value.length > 3 ){
-            aname.style.border ="";
-            document.getElementById("nfield").innerText ="";
+    if (aname.value) {
+        if (aname.value.length > 3) {
+            aname.style.border = "";
+            document.getElementById("nfield").innerText = "";
             return true;
         }
-    } 
+    }
     else {
         aname.style.border = '2px solid red';
-        document.getElementById("nfield").innerText = "--plz enter valid name";
+        nfield.style.color = 'red'
+        document.getElementById("nfield").innerText = "  Enter valid name";
 
-       return false;
+        return false;
     }
 }
 
@@ -49,15 +72,16 @@ function handlecontact() {
 
     // let x = document.myform.age.value;
 
-    if (Number(ag.value) >= 18  ) {
+    if (Number(ag.value) >= 18) {
 
-        ag.style.border ="";
+        age.style.border = "";
         document.getElementById("agefield").innerText = "";
         return true;
     } else {
 
-        ag.style.border = '2px solid red';
-        document.getElementById("agefield").innerText = "--plz enter above 18";
+        age.style.border = '2px solid red';
+        agefield.style.color = 'red'
+        document.getElementById("agefield").innerText = " Enter age above 18";
         return false;
 
     }
@@ -72,61 +96,97 @@ function handleage() {
 
     // let x = document.myform.age.value;
 
-    if (Number(phone.value) > 0  ) {
+    if (Number(phone.value) > 0) {
 
-        phone.style.border ="";
+        phone.style.border = "";
         document.getElementById("phonefield").innerText = "";
         return true;
     } else {
 
-       
+
         phone.style.border = '2px solid red';
-        document.getElementById("phonefield").innerText = "--plz enter valid no";
+        phonefield.style.color = 'red'
+        document.getElementById("phonefield").innerText = "  Enter valid number";
         return false;
 
     }
 
 }
 
-// email
-
+ //email
 const mail = document.getElementById("email");
-function handleemail()  {
-    if (mail.value)
-        {
-            return true;
-        }
-    
-    else {
-        mail.style.border = '2px solid red';
-        document.getElementById("mailfield").innerText = "--plz enter valid mail";
+function handleemail() {
 
-       return false;
+    let x = document.registration.email.value;
+    let atposition = x.indexOf("@");
+    let dotposition = x.lastIndexOf(".");
+
+    if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= x.length) {
+
+        
+        email.style.border = '2px solid red';
+        mailfield.style.color = 'red'
+        document.getElementById("mailfield").innerText = "   Enter valid email";
+        return false;
     }
+    email.style.border = "";
+    document.getElementById("mailfield").innerText = "";
+    return true;
 }
 
-// select
-         
-//  const department = document.getElementById('select'); // or in jQuery use: select = this;
-// if (select.value) {
-//   // value is set to a valid option, so submit form
-//   return true;
-// }
-// return false;
-           
 // gender
-
+const radio = document.getElementsByClassName("radio");
+const ptag = document.getElementById("ptag");
 
 const radioValidation = (radio, ptag) => {
     ptag.innerText = "";
-    // document.getElementById("radioall").style.border = "";
-  
+    
     if (radio[0].checked || radio[1].checked || radio[2].checked) {
-      return true;
+        return true;
     } else {
-      ptag.innerText = "Gender not Checked. ";
-      ptag.style.color=''
-    //   document.getElementById("radioall").style.border = "5px solid red";
-      return false;
+        ptag.innerText = "Gender not select. ";
+        ptag.style.color = 'red'
+   
+        return false;
     }
-  };
+};
+
+// language
+
+const checkbox = document.getElementsByClassName("checkbox");
+const pcheck = document.getElementById("pcheck");
+
+const checkboxValidation = (checkbox, pcheck) => {
+    pcheck.innerText="";
+
+    if(checkbox[0].checked || checkbox[1].checked || checkbox[2].checked || checkbox[3].checked || checkbox[4].checked){
+        return true
+    }
+    else{
+        pcheck.innerText ="language not select";
+        pcheck.style.color = 'red'
+        return false;
+    }
+
+}
+
+// hobby
+ 
+const check = document.getElementsByClassName("check");
+const phobby   = document.getElementById("phobby");
+
+const hobbyValidation = (check,phobby ) => {
+    phobby.innerText = "";
+    
+    if (check[0].checked || check[1].checked || check[2].checked ||check[3].checked ) {
+        return true;
+    } else {
+        phobby.innerText = "Hobbies not select. ";
+        phobby.style.color = 'red'
+   
+        return false;
+    }
+};
+
+// date
+ 

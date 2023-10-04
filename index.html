@@ -19,10 +19,10 @@
                 <td>
                     <label for="img">Select image:</label>
                     
-                 
                 </td>
                 <td> <input type="file" id="image_input" accept="image/jpg, image/png"> 
                   <img id="img" src="">
+                  <p id="pic"></p>
                  </td>
             </tr>
             <tr>
@@ -76,16 +76,17 @@
             <tr>
               <td><label for="language">Language</label></td>
               <td>
-                <input type="checkbox" name="" value="bangla">
+                <input type="checkbox" class="checkbox" name="" id="check1" value="bangla">
                 <label for=""> Bangla</label>
-                <input type="checkbox" name="" value="english">
+                <input type="checkbox" class="checkbox"  name="" id="check2" value="english">
                 <label for=""> English</label>
-                <input type="checkbox" name="" value="">
+                <input type="checkbox" class="checkbox"  name="" id="check3" value="spanish">
                 <label for=""> Spanish</label><br>
-                <input type="checkbox" name="" value="china">
+                <input type="checkbox" class="checkbox"  name="" id="check4" value="china">
                 <label for=""> China</label>
-                <input type="checkbox" name="" value="arabic">
+                <input type="checkbox" class="checkbox"  name="" id="check5" value="arabic">
                 <label for=""> Arabic</label>
+                <p id="pcheck"></p>
               </td>
 
               <!-- <td>
@@ -106,18 +107,20 @@
                   <label for="">Hobbies</label>
                 </td>
                 <td>
-                  <input type="checkbox" name="" value="Travel">
+                  <input type="checkbox" class="check" id="hcheck1" name="" value="Travel">
                   <label for="vehicle1"> Travel</label>
-                  <input type="checkbox" name="" value="Bike">
+                  <input type="checkbox" class="check" id="hcheck2" name="" value="Bike">
                   <label for="vehicle1"> Bike Riding</label><br>
-                  <input type="checkbox" name="" value="movie">
+                  <input type="checkbox" class="check" id="hcheck3" name="" value="movie">
                   <label for=" "> Movies</label>
-                  <input type="checkbox" name="" value="Travel">
+                  <input type="checkbox" class="check" id="hcheck4" name="" value="Travel">
                   <label for="vehicle1"> Travel</label>
+                  <p id="phobby"></p>
                 </td>
               </tr>
                 <td><label for="date">Date of Birth</label></td>
-                <td><input type="date" class="" ></td>
+                <td><input type="date" class="" id="date"  required></td>
+                <p id="datefield"></p>
             </tr>
             <!-- <tr>
               <td><label for="about">About:</label></td>
@@ -126,11 +129,10 @@
             <tr>
               <td colspan=""><input type="submit" class="submit" value="Register"></td>
             </tr>
+ 
           </table>
           
         </form>
-        
-         
         
       </div>
 
